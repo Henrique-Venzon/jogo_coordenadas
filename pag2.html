@@ -1,0 +1,339 @@
+
+<!doctype html>
+<html lang="pt-br" class="nav-no-js"><head>
+
+<title>Quiz da língua portuguesa</title>
+
+<style type="text/css">
+.caixa{
+
+	padding:10px;
+	border:1px solid rgba(214,214,214,1);
+	clear:left;
+	margin-bottom:10px;
+	background-color:#EEEEEE;
+}
+.alternativa{
+	border:1px solid #CCCCCC;
+	margin:5px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+	background-color:#d2d2d2;
+	cursor: pointer;
+}
+.alternativa:hover { 
+  background-color: #b7a0d3;
+}
+
+</style>
+
+<script type="text/javascript">
+var respostas = [3,2,1,2,4,3,3,1,1,3,1,2,3,1,4,2,3,4,1,3];
+var pontos = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var respondeu = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var jogoFinalizado=false;
+
+function MarcaResposta(numQuestao,resposta){
+	var elemento;
+	var id;
+	
+	if(jogoFinalizado){
+		var r = confirm("Quer ver as resoluções?");
+		if (r == true) {
+		  window.location.href = "#";
+		} 	
+	}
+	else{
+		if(respostas[numQuestao-1]==resposta) pontos[numQuestao-1]=10;
+		else pontos[numQuestao-1]=0;
+		respondeu[numQuestao-1]=1;
+		for(i=1;i<=5;i++){
+			id="r"+numQuestao+"_"+i;
+			elemento=document.getElementById(id);
+			if(resposta==i){
+				elemento.style.backgroundColor="#6B3FA5";
+				elemento.style.color="#FFFFFF";
+			}
+			else {
+				elemento.style.backgroundColor="#FFFFFF";
+				elemento.style.color="#000000";
+			}	
+		}
+	}
+}
+
+function CalculaDesempenho()
+{
+	var valido=true;
+	var soma=0;
+	var id;
+	var numquest;
+	var elemento;
+	var divResultado=document.getElementById("resultado");
+	for(i=0;i<20;i++)
+		if(respondeu[i]==0) valido=false;
+	if (!valido)
+		alert ("\nPor favor responda todas as perguntas."); 
+	else {
+		for(k=0;k<20;k++){
+			numquest=k+1;
+			if(pontos[k]==10) //acertou
+				soma=soma+pontos[k];
+			id="r"+numquest+"_"+respostas[k];
+			elemento=document.getElementById(id);
+			elemento.style.backgroundColor="#008000";
+			elemento.style.color="#FFFFFF";
+		}
+    if(soma==200) divResultado.innerHTML="<div style='background-color:#EEEEEE'><h3>UOOOOUUUUUUUU!!!! Você acertou todas!</h3><h2 style='color:#008000'>70 pontos</h2><p><a href='#inicio'>Confira as respostas</a></p></div>";
+		else divResultado.innerHTML="<div style='background-color:#EEEEEE'><h3>Você marcou:</h3><h2 style='color:#008000'>"+soma+" pontos!</h2><p><a href='#inicio'>Confira as respostas</a></p></div>";
+		jogoFinalizado=true;
+	}
+    
+}
+
+</script>
+
+<h1>Quiz da língua portuguesa (orações coordenadas)</h1>
+
+</script><a name="inicio"></a>
+<p class="justificado">O quiz é o nosso jogo de perguntas sobre orações coordenadas. Aqui você pode testar os seus conhecimentos de forma interativa e divertida!<br>Cada questão vale 10 pontos,se você fizer 200 pontos quer dizer que você acertou todas as 20 questões!
+<br>Boa sorte!!
+</p>
+
+<div class="caixa">
+	1 (facíl) - À margem de Memórias de um sargento de milícias<br> É difícil associar à impressão deixada por essa obra divertida e leve a ideia de um destino trágico. Foi, entretanto, o que coube a Manuel Antônio de Almeida, nascido em 1831 e morto em 1861. A simples justaposição dessas duas datas é bastante reveladora: mais alguns dados, os poucos de que dispomos, apenas servem para carregar nas cores, para tornar a atmosfera do quadro mais deprimente. Que é que cabe num prazo tão curto? 
+  <br>No primeiro parágrafo, o conectivo “entretanto” introduz uma oração que contém, em relação à associação feita no período anterior, ideia de
+  Alternativas
+	<div class="alternativa" id="r1_1" onclick="MarcaResposta(1,1)">a) similitude.</div>
+	<div class="alternativa" id="r1_2" onclick="MarcaResposta(1,2)">b) explicação.</div>
+	<div class="alternativa" id="r1_3" onclick="MarcaResposta(1,3)">c) contraste.</div>
+	<div class="alternativa" id="r1_4" onclick="MarcaResposta(1,4)">d) causa.</div>
+	<div class="alternativa" id="r1_5" onclick="MarcaResposta(1,5)">e) condição.</div>
+	</div><div class="caixa">
+	2 (facíl) - Ele era daqueles que sempre querem dormir mais cinco minutos; só que esses cinco minutos
+  <br>
+  facilmente transformavam-se em uma hora” (l. 2-3)
+  <br>
+  A relação estabelecida entre as duas partes da frase assume o valor de:
+	<div class="alternativa" id="r2_1" onclick="MarcaResposta(2,1)">a)comparação</div>
+	<div class="alternativa" id="r2_2" onclick="MarcaResposta(2,2)">b) adversidade</div>
+	<div class="alternativa" id="r2_3" onclick="MarcaResposta(2,3)">c) causalidade</div>
+	<div class="alternativa" id="r2_4" onclick="MarcaResposta(2,4)">d) explicação</div>
+	<div class="alternativa" id="r2_5" onclick="MarcaResposta(2,5)">e) nenhuma das alternativas</div>
+	</div><div class="caixa">
+	3 (facíl) -  Assinale a alternativa que contém uma coordenativa conclusiva:
+	<div class="alternativa" id="r3_1" onclick="MarcaResposta(3,1)">a) Sérgio foi bom filho; logo será um bom pai.</div>
+	<div class="alternativa" id="r3_2" onclick="MarcaResposta(3,2)">b) Os meninos ora brigavam, ora brincavam.</div>
+	<div class="alternativa" id="r3_3" onclick="MarcaResposta(3,3)">c) Jaime trabalha depressa, contudo produz pouco.</div>
+	<div class="alternativa" id="r3_4" onclick="MarcaResposta(3,4)">d) Os cães mordem, não por maldade, mas por precisarem viver.</div>
+	<div class="alternativa" id="r3_5" onclick="MarcaResposta(3,5)">e) Adão comeu a maçã, e nossos dentes até hoje doem.</div>
+	</div><div class="caixa">
+	4 (facíl) -  O trecho destacado em “Wolton justifica-se dizendo que a internet é incrível para a comunicação entre pessoas e grupos que tenham os mesmos interesses, mas está longe de ser uma ferramenta de comunicação de coesão entre pessoas e grupos diferentes.” é uma oração:..
+	<div class="alternativa" id="r4_1" onclick="MarcaResposta(4,1)">a) coordenada sindética aditiva.</div>
+	<div class="alternativa" id="r4_2" onclick="MarcaResposta(4,2)">b) coordenada sindética adversativa.</div>
+	<div class="alternativa" id="r4_3" onclick="MarcaResposta(4,3)">c) coordenada assindética.</div>
+	<div class="alternativa" id="r4_4" onclick="MarcaResposta(4,4)">d) estuda os extraterrestres</div>
+	<div class="alternativa" id="r4_5" onclick="MarcaResposta(4,5)">e) coordenada sindética explicativa.</div>
+	</div><div class="caixa">
+	5 (facíl) - A oração “Negro e branco designam, portanto, categorias essencialmente políticas” é coordenada:
+	<div class="alternativa" id="r5_1" onclick="MarcaResposta(5,1)">a) assindética.</div>
+	<div class="alternativa" id="r5_2" onclick="MarcaResposta(5,2)">b) aditiva.</div>
+	<div class="alternativa" id="r5_3" onclick="MarcaResposta(5,3)">c) adversativa.</div>
+	<div class="alternativa" id="r5_4" onclick="MarcaResposta(5,4)">d) conclusiva.</div>
+	<div class="alternativa" id="r5_5" onclick="MarcaResposta(5,5)">e) completiva nominal.</div>
+	</div><div class="caixa">
+	6 (médio) - Quadrilha<br>
+  João amava Teresa que amava Raimundo que amava Maria que amava Joaquim que amava Lilique não amava ninguém.João foi para os Estados Unidos, Teresa para o convento, Raimundo morreu de desastre, Maria ficou para tia, Joaquim suicidou-se e Lili casou com J. Pinto Fernandes que não tinha entrado na história.Carlos Drummond de Andrade.
+  <br>
+  De acordo com a opção sintática considerada pelo poeta ao criar o poema, é correto afirmar que
+	<div class="alternativa" id="r6_1" onclick="MarcaResposta(6,1)">a) os verbos transitivos diretos reverenciam os personagens João e Joaquim.</div>
+	<div class="alternativa" id="r6_2" onclick="MarcaResposta(6,2)">b) todo o poema é composto por orações substantivas subjetivas.</div>
+	<div class="alternativa" id="r6_3" onclick="MarcaResposta(6,3)">c) as orações adjetivas do poema apresentam os desejos amorosos das personagens.</div>
+	<div class="alternativa" id="r6_4" onclick="MarcaResposta(6,4)">d) as orações coordenadas aditivas do poema relatam a união entre Lili e J. Pinto Fernandes.</div>
+	<div class="alternativa" id="r6_5" onclick="MarcaResposta(6,5)">e) a segunda parte do poema está construída predominantemente com orações coordenadas sindéticas conclusivas.</div>
+	</div><div class="caixa">
+	7 (médio) - Sobre aspectos da sintaxe em Uma vez liguei para a telefonista de madrugada e pedi uma Amiga.<br>Assinale a afirmativa correta.
+	<div class="alternativa" id="r7_1" onclick="MarcaResposta(7,1)">a) viajou para vários países</div>
+	<div class="alternativa" id="r7_2" onclick="MarcaResposta(7,2)">b) gosta de apenas um tipo de música</div>
+	<div class="alternativa" id="r7_3" onclick="MarcaResposta(7,3)">c) aprecia diferentes estilos, métodos, etc.</div>
+	<div class="alternativa" id="r7_4" onclick="MarcaResposta(7,4)">d) prefere alimentação vegetariana</div>
+	<div class="alternativa" id="r7_5" onclick="MarcaResposta(7,5)">e) tem medo de elevador</div>
+	</div>
+    <div class="caixa">
+    8 (médio) - A oração coordenada sindética adversativa está no item:
+    <div class="alternativa" id="r8_1" onclick="MarcaResposta(8,1)">a) No entanto, apenas 4% possuem computadores instalados em sala de aula (88% instalaram a máquina na sala da coordenação) e 81% das unidades contam com laboratório de informática.</div>
+    <div class="alternativa" id="r8_2" onclick="MarcaResposta(8,2)">b) Cerca de 50% das instituições afirmam ter uma pessoa contratada para trabalhar especificamente com a internet.</div>
+    <div class="alternativa" id="r8_3" onclick="MarcaResposta(8,3)">c) A principal limitação para maior uso das tecnologias na escola está relacionada ao nível de conhecimento dos professores acerca dessas tecnologias.</div>
+    <div class="alternativa" id="r8_4" onclick="MarcaResposta(8,4)">d) O objetivo da pesquisa foi identificar o uso e a apropriação da internet banda larga nas escolas públicas urbanas do país.</div>
+    <div class="alternativa" id="r8_5" onclick="MarcaResposta(8,5)">e) Participaram do estudo 4.987 alunos, 1.541 professores, 428 coordenadores e 497 diretores de escolas.</div>
+    </div>
+    <div class="caixa">
+    9 (médio) - Considere os exemplos a seguir, quanto à presença de oração coordenada.
+    <br>
+    I. “os germânicos dividiram as cidades”.
+    <br>
+    II. “e luta contra o domínio do espanhol”.
+    <br>
+    III. “os índios perderam sua língua e cultura”.
+    <br>
+    IV. “em cuidar de seus idiomas”.
+    <div class="alternativa" id="r9_1" onclick="MarcaResposta(9,1)">a) Somente os exemplos I e II são corretos.</div>
+    <div class="alternativa" id="r9_2" onclick="MarcaResposta(9,2)">b) Somente os exemplos I e IV são corretos.</div>
+    <div class="alternativa" id="r9_3" onclick="MarcaResposta(9,3)">c) Somente os exemplos III e IV são corretos.</div>
+    <div class="alternativa" id="r9_4" onclick="MarcaResposta(9,4)">d) Somente os exemplos I, II e III são corretos.</div>
+    <div class="alternativa" id="r9_5" onclick="MarcaResposta(9,5)">e) Somente os exemplos II, III e IV são corretos.</div>
+    </div>
+    <div class="caixa">
+    10 (médio) - O passo vagaroso de quem não tem pressa - o mundo podia esperar por ele, o peito magro estufado, os gestos lentos, a voz pausada e grave, descia a rua da Igreja cumprimentando cerimoniosamente, nobremente, os que por ele passavam ou os que chegavam na janela muitas vezes só para vê-lo passar.
+    <br>No início do segundo parágrafo, por ter na frase a mesma função sintática que o vocábulo “vagaroso” com relação a “passo”, a oração “de quem não tem pressa” é considerada
+    <div class="alternativa" id="r10_1" onclick="MarcaResposta(10,1)">a) coordenada sindética.</div>
+    <div class="alternativa" id="r10_2" onclick="MarcaResposta(10,2)">b) subordinada substantiva.</div>
+    <div class="alternativa" id="r10_3" onclick="MarcaResposta(10,3)">c) subordinada adjetiva.</div>
+    <div class="alternativa" id="r10_4" onclick="MarcaResposta(10,4)">d) coordenada assindética.</div>
+    <div class="alternativa" id="r10_5" onclick="MarcaResposta(10,5)">e) subordinada adverbial.</div>
+    </div>
+    <div class="caixa">
+    11 (intermediário) - Parei num cruzamento. Lembrei-me do garoto do porão. Se um dia eu precisasse fugir, tentaria levá-lo comigo. Queria dar a ele uma chance. Atravessei a rua e me lembrei de como eu era diferente, apenas algumas semanas atrás. Não vacilava ao receber uma ordem, por mais incompreensível que fosse. Ler algumas páginas do diário do Dr. Bertonni foi o mesmo que virar o mundo pelo avesso. Eu tinha direito a ração, casa e trabalho. Pensava que fosse feliz por isso. Enquanto desvendava a história do mundo, através dos antigos jornais e pelo diário, era tomado pelo medo. Muitas vezes pensei ter perdido a felicidade por saber tanto. Mas agora eu percebo: meses atrás eu não era feliz, mas apenas ignorante.
+    <br>Costa, Marcos Túlio. O CANTO DA AVE MALDITA. Rio de Janeiro: Record, 1986.
+    <br>Nesse mesmo texto, assinale a opção correspondente a função da conjunção ‘mas’ na última linha do texto:
+    <div class="alternativa" id="r11_1" onclick="MarcaResposta(11,1)">a) Estabelece uma oposição entre felicidade e ignorância.</div>
+    <div class="alternativa" id="r11_2" onclick="MarcaResposta(11,2)">b) Opõe o tempo presente ao tempo passado.</div>
+    <div class="alternativa" id="r11_3" onclick="MarcaResposta(11,3)">c) Opõe perceber a conhecer.</div>
+    <div class="alternativa" id="r11_4" onclick="MarcaResposta(11,4)">d) Complementa a ideia de felicidade com a ideia de ignorância.</div>
+    <div class="alternativa" id="r11_5" onclick="MarcaResposta(11,5)">e) Contrapõe a vida pregressa do narrador a uma certa noção de ignorância.</div>
+    </div>
+    <div class="caixa">
+    12 (intermediário) - Em relação à classificação das orações coordenadas sindéticas destacadas, assinale a alternativa incorreta.
+    <div class="alternativa" id="r12_1" onclick="MarcaResposta(12,1)">a) Ela não só foi a primeira, mas também foi a mais aplaudida. (aditiva)</div>
+    <div class="alternativa" id="r12_2" onclick="MarcaResposta(12,2)">b) Fale agora ou permanecerá calado para sempre. (conclusiva)</div>
+    <div class="alternativa" id="r12_3" onclick="MarcaResposta(12,3)">c) Eu queria convencê-lo, mas os argumentos não foram suficientes. (adversativa)</div>
+    <div class="alternativa" id="r12_4" onclick="MarcaResposta(12,4)">d) Cumprimente-o, pois hoje venceu mais uma etapa de sua vida. (explicativa)</div>
+    <div class="alternativa" id="r12_5" onclick="MarcaResposta(12,5)">e) Nenhuma das alternativas</div>
+    </div>
+    <div class="caixa">
+    13 (intermediário) - Assinale a opção em que o período não é construído de orações coordenadas.
+    <div class="alternativa" id="r13_1" onclick="MarcaResposta(13,1)">a) “Nesta perseguição do acidental, quer num flagrante de esquina, quer nas palavras de uma criança ou num acidente doméstico, torno-me simples espectador e perco a noção do essencial”.</div>
+    <div class="alternativa" id="r13_2" onclick="MarcaResposta(13,2)">b) “Não sou poeta e estou sem assunto”.</div>
+    <div class="alternativa" id="r13_3" onclick="MarcaResposta(13,3)">c) “Ao fundo do botequim, um casal de pretos acaba de sentar-se numa das últimas mesas de mármore ao longo da parede de espelhos”.</div>
+    <div class="alternativa" id="r13_4" onclick="MarcaResposta(13,4)">d) “O pai se mune de uma caixa de fósforo, e espera”.</div>
+    <div class="alternativa" id="r13_5" onclick="MarcaResposta(13,5)">e) “A negrinha agarra finalmente o bolo com as duas mãos sôfregas e põe-se a comê-lo”.</div>
+    </div>
+    <div class="caixa">
+    14 (intermediário) - “Pastora de nuvens, fui posta a serviço por uma campina tão desamparada que não principia nem também termina, e onde nunca é noite e nunca madrugada.
+    <br>(Pastores da terra, vós tendes sossego, que olhais para o sol e encontrais direção. Sabeis quando é tarde, sabeis quando é cedo. Eu, não.)”
+    <br>Esse trecho faz parte de um poema de Cecília Meireles, intitulado Destino, uma espécie de profissão de fé da autora.
+    <br>O conjunto das duas orações coordenadas que compõem o segundo verso da segunda estrofe – “que olhais para o sol e encontrais direção” – tem sentido
+    <div class="alternativa" id="r14_1" onclick="MarcaResposta(14,1)">a) explicativo</div>
+    <div class="alternativa" id="r14_2" onclick="MarcaResposta(14,2)">b) comparativo</div>
+    <div class="alternativa" id="r14_3" onclick="MarcaResposta(14,3)">c) condicional</div>
+    <div class="alternativa" id="r14_4" onclick="MarcaResposta(14,4)">d) concessivo</div>
+    <div class="alternativa" id="r14_5" onclick="MarcaResposta(14,5)">e) temporal</div>
+    </div>
+    <div class="caixa">
+    15 (intermediário) - De bem com a vida
+    <br>A felicidade é a soma das pequenas felicidades.
+    <br>momento, que meu conceito de felicidade tinha acabado
+    <br>de mudar. Eu já suspeitava que a felicidade com letras
+    <br>maiúsculas não existia, mas dava a ela o benefício da
+    <br>dúvida. Afinal, desde que nos entendemos por gente,
+    <br>aprendemos a sonhar com essa felicidade no superlativo.
+    <br>Mas ali, vendo aquele outdoor estrategicamente
+    <br>colocado no meio do meu caminho (que, de certa
+    <br>forma, coincidia com o meio da minha trajetória de vida),
+    <br>tive certeza de que a felicidade, ao contrário do que nos
+    <br>ensinaram os contos de fadas e os filmes de Hollywood,
+    <br>não é um estado mágico e duradouro. Na vida real, o
+    <br>que existe é uma felicidade homeopática, distribuída
+    <br>em conta-gotas. Um pôr de sol aqui, um beijo ali, uma
+    <br>xícara de café recém-coado, um livro que a gente não
+    <br>consegue fechar, um homem que nos faz sonhar, uma
+    <br>amiga que nos faz rir… São situações e momentos que
+    <br>vamos empilhando com o cuidado e a delicadeza que
+    <br>merecem − alegrias de pequeno e médio porte e até
+    <br>grandes (ainda que fugazes) alegrias.
+    <br>FERREIRA, Leila. Revista Marie Claire. nov. 2008. p.56. (fragmento)
+    <br>Na linha argumentativa do texto, o período “Afinal, desde que nos entendemos por gente, aprendemos a sonhar com essa felicidade no superlativo.” (l. 6-7), em relação ao anterior, configura-se, semanticamente, como uma
+    <div class="alternativa" id="r15_1" onclick="MarcaResposta(15,1)">a) alternativa</div>
+    <div class="alternativa" id="r15_2" onclick="MarcaResposta(15,2)">b) restrição</div>
+    <div class="alternativa" id="r15_3" onclick="MarcaResposta(15,3)">c) consequência</div>
+    <div class="alternativa" id="r15_4" onclick="MarcaResposta(15,4)">d) justificativa</div>
+    <div class="alternativa" id="r15_5" onclick="MarcaResposta(15,5)">e) contradição</div>
+    </div>
+    <div class="caixa">
+    16 (difícil) - Analise o funcionamento das conjunções em destaque nos seguintes enunciados.
+    <br>I. Como proteger seu dinheiro
+    <br>O novo guia para você entender o efeito da crise global no seu bolso – e as melhores estratégias para enfrentar estes tempos de aperto.
+    <br>(Época, 28/02/09)
+    <br>II. Internet sem sair do sofá
+    <br>Novas tecnologias levam os vídeos da rede à TV da sala. Portanto, começa uma nova batalha pela sua audiência.
+    <br>(Adaptado. Época, 28/02/09)
+    <br>III. A verdade crua, assada e cozida
+    <br>Um novo estudo sobre os efeitos da carne sugere que ela pode ser nociva – masapenas em excesso. É o argumento que faltava para quem adora um filé.
+    <br>(Época, 28/02/09)
+    <br>As conjunções “e”, “Portanto” e “mas” estabelecem entre as orações, respectivamente, relação de:
+    <div class="alternativa" id="r16_1" onclick="MarcaResposta(16,1)">a) adição – explicação – conclusão</div>
+    <div class="alternativa" id="r16_2" onclick="MarcaResposta(16,2)">b) adição – conclusão – oposição</div>
+    <div class="alternativa" id="r16_3" onclick="MarcaResposta(16,3)">c) separação – explicação – oposição</div>
+    <div class="alternativa" id="r16_4" onclick="MarcaResposta(16,4)">d) adição – exclusão – justificação</div>
+    <div class="alternativa" id="r16_5" onclick="MarcaResposta(16,5)">e) explicação – conclusão – oposição</div>
+    </div>
+    <div class="caixa">
+    17 (difícil)- Mais escolarizadas, mulheres ainda ganham menos e têm dificuldades de subir na carreira
+    <br>As mulheres brasileiras já engravidam menos na adolescência, estudam mais do que os homens e tiveram aumento maior na renda média mensal, segundo mostram as Estatísticas de Gênero do IBGE, retiradas da base de dados do Censo de 2010, mas elas ainda ganham salários menores e tem dificuldades em ascender na carreira.
+    <br>Acesso em: 29.08.2016. Adaptado.
+    <br>O título do artigo – Mais escolarizadas, mulheres ainda ganham menos e têm dificuldades de subir na carreira – poderia ser substituído, sem causar prejuízo de sentido, por:
+    <div class="alternativa" id="r17_1" onclick="MarcaResposta(17,1)">a) Mulheres, mais escolarizadas, porventura ganham mais, entretanto possuem empecilhos para subir na carreira.</div>
+    <div class="alternativa" id="r17_2" onclick="MarcaResposta(17,2)">b) Mulheres, mais escolarizadas, ainda ganham menos, bem como enfrentam obstáculos para subir na carreira.</div>
+    <div class="alternativa" id="r17_3" onclick="MarcaResposta(17,3)">c) Mulheres, mais escolarizadas, às vezes ganham menos, por conseguinte apresentam especificidades para se elevarem na carreira.</div>
+    <div class="alternativa" id="r17_4" onclick="MarcaResposta(17,4)">d) Mais escolarizadas, mulheres, ainda que enfrentem dificuldades para progredirem na carreira, ganham o mesmo ou mais.</div>
+    <div class="alternativa" id="r17_5" onclick="MarcaResposta(17,5)">e) Mais escolarizadas, mulheres apresentam particularidades para subir na carreira, porquanto já ganham mais.</div>
+    </div>
+    <div class="caixa">
+    18 (difícil)- Para responder à questão, leia os fragmentos a seguir, retirados da reportagem Cientistas criam árvore artificial contra aquecimento global, publicada no site da BBC.
+    <br>Um grupo de cientistas da Universidade de Columbia, nos Estados Unidos, anunciou ter criado árvores artificiais que podem ajudar no combate ao aquecimento global, já que absorvem CO2 da atmosfera quase mil vezes mais rapidamente do que árvores de verdade.
+    <br>A oração “que podem ajudar no combate ao aquecimento global” deve ser classificada como:
+    <div class="alternativa" id="r18_1" onclick="MarcaResposta(18,1)">a) Oração coordenada sindética aditiva</div>
+    <div class="alternativa" id="r18_2" onclick="MarcaResposta(18,2)">b) Oração coordenada assindética</div>
+    <div class="alternativa" id="r18_3" onclick="MarcaResposta(18,3)">c) Oração subordinada substantiva</div>
+    <div class="alternativa" id="r18_4" onclick="MarcaResposta(18,4)">d) Oração subordinada adjetiva</div>
+    <div class="alternativa" id="r18_5" onclick="MarcaResposta(18,5)">e) Oração subordinada adverbial</div>
+    </div>
+    <div class="caixa">
+    19 (difícil)- Cultivar um estilo de vida saudável é extremamente importante para diminuir o risco de infarto, mas também como de problemas como morte súbita e derrame. Significa que manter uma alimentação saudável e praticar atividade física regularmente já reduz, por si só, as chances de desenvolver vários problemas. Além disso, é importante para o controle da pressão arterial, dos níveis de colesterol e de glicose no sangue. Também ajuda a diminuir o estresse e aumentar a capacidade física, fatores que, somados, reduzem as chances de infarto. Exercitar-se, nesses casos, com acompanhamento médico e moderação, é altamente recomendável.
+    <br>ATALIA, M. Nossa vida. Época. 23 mar. 2009.
+    <br>As ideias veiculadas no texto se organizam estabelecendo relações que atuam na construção do sentido. A esse respeito, identifica-se, no fragmento, que
+    <div class="alternativa" id="r19_1" onclick="MarcaResposta(19,1)">a) A expressão “Além disso” marca uma sequenciação de ideias.</div>
+    <div class="alternativa" id="r19_2" onclick="MarcaResposta(19,2)">b) O conectivo “mas também” inicia oração que exprime ideia de contraste.</div>
+    <div class="alternativa" id="r19_3" onclick="MarcaResposta(19,3)">c) O termo “como”, em “como morte súbita e derrame”, introduz uma generalização.</div>
+    <div class="alternativa" id="r19_4" onclick="MarcaResposta(19,4)">d) O termo “Também” exprime uma justificativa.</div>
+    <div class="alternativa" id="r19_5" onclick="MarcaResposta(19,5)">e) O termo “fatores” retoma coesivamente “níveis de colesterol e de glicose no sangue”.</div>
+    </div>
+    <div class="caixa">
+    20 (difícil)-Tarefa
+    <br>Morder o fruto amargo e não cuspir
+    <br>Mas avisar aos outros quanto é amargo
+    <br>Mestre da redação
+    <br>Cumprir o trato injusto e não falhar
+    <br>Mas avisar aos outros quanto é injusto
+    <br>Sofrer o esquema falso e não ceder
+    <br>Mas avisar aos outros quanto é falso
+    <br>Dizer também que são coisas mutáveis…
+    <br>E quando em muitos a não pulsar
+    <br>do amargo e injusto e falso por mudar
+    <br>então confiar à gente exausta o plano
+    <br>de um mundo novo e muito mais humano.
+    <br>CAMPOS, G. Tarefa. Rio de Janeiro: Civilização Brasileira, 1981.
+    <br>Na organização do poema, os empregos da conjunção “mas” articulam, para além de sua função sintática,
+    <div class="alternativa" id="r20_1" onclick="MarcaResposta(20,1)">a) a ligação entre verbos semanticamente semelhantes.</div>
+    <div class="alternativa" id="r20_2" onclick="MarcaResposta(20,2)">b) a oposição entre ações aparentemente inconciliáveis.</div>
+    <div class="alternativa" id="r20_3" onclick="MarcaResposta(20,3)">c) a introdução do argumento mais forte de uma sequência.</div>
+    <div class="alternativa" id="r20_4" onclick="MarcaResposta(20,4)">d) o reforço da causa apresentada no enunciado introdutório.</div>
+    <div class="alternativa" id="r20_5" onclick="MarcaResposta(20,5)">e) a intensidade dos problemas sociais presentes no mundo.</div>
+    </div>
+<div align="center"><input type="button" onclick="CalculaDesempenho()" value="RESPOSTAS!"></div>
+<br>
+<div id="resultado" align="center"></div>
+</body>
+</html> 
